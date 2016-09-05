@@ -1,7 +1,6 @@
 package com.clotube;
 
 import com.facebook.react.ReactActivity;
-import com.applicaster.RNYouTubePlayer.YoutubePlayerReactPackage;
 
 public class DefaultMainActivity extends ReactActivity {
 

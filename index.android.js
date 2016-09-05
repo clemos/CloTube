@@ -5,7 +5,7 @@
  */
 
 import React, { Component } from 'react';
-import RNYouTubePlayer from 'rn-youtube-android';
+import YouTube from 'react-native-youtube';
 import {
   AppRegistry,
   StyleSheet,
@@ -21,17 +21,17 @@ class CloTube extends Component {
           videoId: "no video"
       };
       this.handlePress = this.handlePress.bind(this);
-      this.playTheVideo = this.playTheVideo.bind(this);
+      //this.playTheVideo = this.playTheVideo.bind(this);
   }
     
-  playTheVideo(){
-      
-      RNYouTubePlayer.play("AIzaSyDcyE8zJGvJJ9ClPLfc_OGW4QYOiAKlmFI",this.state.videoId );
-  }
+  // playTheVideo(){
+  //     console.log('playing', this.state.videoId);
+  //     RNYouTubePlayer.play("AIzaSyDcyE8zJGvJJ9ClPLfc_OGW4QYOiAKlmFI",this.state.videoId );
+  // }
   
   handlePress() {
-      this.setState({ videoId: "KawcajJGX-w" });
-      this.playTheVideo();
+      this.setState({ videoId: "pfqNykQgaOs" });
+      //this.playTheVideo();
   }
   
   render() {
@@ -52,6 +52,23 @@ class CloTube extends Component {
           Double tap R on your keyboard to reload,{'\n'}
           Shake or press menu button for dev menu
         </Text>
+        <YouTube
+          ref="youtubePlayer"
+          apiKey="AIzaSyDcyE8zJGvJJ9ClPLfc_OGW4QYOiAKlmFI"
+          videoId="KVZ-P-ZI6W4" // The YouTube video ID
+          play={true}           // control playback of video with true/false
+          hidden={false}        // control visiblity of the entire view
+          playsInline={true}    // control whether the video should play inline
+          loop={false}          // control whether the video should loop when ended
+
+          onReady={(e)=>{this.setState({isReady: true})}}
+          onChangeState={(e)=>{this.setState({status: e.state})}}
+          onChangeQuality={(e)=>{this.setState({quality: e.quality})}}
+          onError={(e)=>{this.setState({error: e.error})}}
+          onProgress={(e)=>{this.setState({currentTime: e.currentTime, duration: e.duration})}}
+
+          style={{alignSelf: 'stretch', height: 300, backgroundColor: 'black', marginVertical: 10}}
+        />
         
       </View>
     );

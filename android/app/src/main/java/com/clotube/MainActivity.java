@@ -12,7 +12,8 @@ import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler;
 import com.facebook.react.shell.MainReactPackage;
 
-import com.applicaster.RNYouTubePlayer.YoutubePlayerReactPackage;
+//import com.applicaster.RNYouTubePlayer.YoutubePlayerReactPackage;
+import com.inprogress.reactnativeyoutube.ReactNativeYouTube;
 
 public class MainActivity extends Activity implements DefaultHardwareBackBtnHandler {
     private ReactRootView mReactRootView;
@@ -28,7 +29,8 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
                 .setBundleAssetName("index.android.bundle")
                 .setJSMainModuleName("index.android")
                 .addPackage(new MainReactPackage())
-                .addPackage(new YoutubePlayerReactPackage(this))
+                .addPackage(new ReactNativeYouTube(this))
+                //.addPackage(new YoutubePlayerReactPackage(this))
                 .setUseDeveloperSupport(BuildConfig.DEBUG)
                 .setInitialLifecycleState(LifecycleState.RESUMED)
                 .build();
@@ -58,4 +60,12 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
         }
         return super.onKeyUp(keyCode, event);
     }
+
+    // @Override
+    // protected List<ReactPackage> getPackages() {
+    //     return Arrays.<ReactPackage>asList(
+    //         new MainReactPackage(),
+    //             new ReactNativeYouTube(this)
+    //     );
+    // }
 }

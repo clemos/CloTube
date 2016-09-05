@@ -2,5 +2,8 @@ rootProject.name = 'CloTube'
 
 include ':app'
 
-include ':RNYouTubePlayer', ':app'
-project(':RNYouTubePlayer').projectDir = new File(rootProject.projectDir, '../node_modules/rn-youtube-android/android')
+// include ':RNYouTubePlayer', ':app'
+// project(':RNYouTubePlayer').projectDir = new File(rootProject.projectDir, '../node_modules/rn-youtube-android/android')
+
+include ':RCTYouTube', ':app'
+project(':RCTYouTube').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-youtube/RCTYouTube')
